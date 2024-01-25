@@ -3,7 +3,7 @@ from collections import deque
 inp = sys.stdin.readline
 
 N = int(inp())
-moves = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+moves = [0, 1, 0, -1]
 maps = [list(map(int, inp().split())) for _ in range(N)]
 max_height = max(max(row) for row in maps)
 max_area = 0
@@ -23,9 +23,9 @@ def bfs(height) -> int:
       while queue:
         x, y = queue.pop()
         
-        for move in moves:
-          nx = x + move[0]
-          ny = y + move[1]
+        for idx in range(4):
+          nx = x + moves[idx]
+          ny = y + moves[idx - 1]
 
           if isValid(nx, ny) and not visited[nx][ny] and maps[nx][ny] > height:
             queue.append((nx, ny))
