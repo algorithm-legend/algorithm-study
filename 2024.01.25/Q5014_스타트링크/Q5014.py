@@ -17,17 +17,16 @@ def bfs():
       print(dist)
       return
 
-    next_dist = dist + 1
     next_up = cur + U
     next_down = cur - D
 
-    if 0 < next_up and next_up <= F and not visited[next_up]:
+    if next_up <= F and not visited[next_up]:
       visited[next_up] = True
-      queue.append((next_up, next_dist))
+      queue.append((next_up, dist + 1))
 
-    if 0 < next_down and next_down <= F and not visited[next_down]:
+    if 0 < next_down and not visited[next_down]:
       visited[next_down] = True
-      queue.append((next_down, next_dist))
+      queue.append((next_down, dist + 1))
 
   print("use the stairs")
 
