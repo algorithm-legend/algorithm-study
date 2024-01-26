@@ -1,11 +1,11 @@
 package backjun.silver;
 /*
- * 1. booleanÇü ¹è¿­¿¡ ¹æ¹®ÇÑ Ãş true / count++
- *    -> ÃÖ´Ü°æ·Î°¡ ¾Æ´Ñ ¹æ¹®ÇÑ ¸ğµç °æ¿ìÀÇ ¼ö°¡ Ä«¿îÆ® µÊ
+ * 1. booleaní˜• ë°°ì—´ì— ë°©ë¬¸í•œ ì¸µ true / count++
+ *    -> ìµœë‹¨ê²½ë¡œê°€ ì•„ë‹Œ ë°©ë¬¸í•œ ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ê°€ ì¹´ìš´íŠ¸ ë¨
  *    
- * 2. intÇü ¹è¿­ check
- * 	    ÀÌ ÃşÀ» ¹æ¹®Çß¾ú´ÂÁö È®ÀÎ(check[now] > 0)
- *    ¸î¹øÂ°¿¡ ¹æ¹®Çß´ÂÁö È®ÀÎ(check[now] + 1)
+ * 2. intí˜• ë°°ì—´ check
+ * 	    ì´ ì¸µì„ ë°©ë¬¸í–ˆì—ˆëŠ”ì§€ í™•ì¸(check[now] > 0)
+ *    ëª‡ë²ˆì§¸ì— ë°©ë¬¸í–ˆëŠ”ì§€ í™•ì¸(check[now] + 1)
  */
 import java.util.LinkedList;
 import java.util.Queue;
@@ -35,18 +35,18 @@ public class B5014 {
 			now = q.poll();
 			
 			if(now == to){
-				count = check[now] -1; // ÃÖÃÊ ½ÃÀÛÃş »©±â
+				count = check[now] -1; // ìµœì´ˆ ì‹œì‘ì¸µ ë¹¼ê¸°
 				answer = Integer.toString(count);
 			}
 			
 			temp = now + up;
-			if(temp<=floor && check[temp] < 1){ // ÃÖ°íÃşº¸´Ù ³·°í ¹æ¹®ÇÏÁö ¾ÊÀº °æ¿ì
+			if(temp<=floor && check[temp] < 1){ // ìµœê³ ì¸µë³´ë‹¤ ë‚®ê³  ë°©ë¬¸í•˜ì§€ ì•Šì€ ê²½ìš°
 				q.offer(temp);
 				check[temp] = check[now] + 1;
 			} 
 			
 			temp = now - down;
-			if(temp>0 && check[temp] < 1){ // ÃÖÀúÃşº¸´Ù ³ô°í ¹æ¹®ÇÏÁö ¾ÊÀº °æ¿ì
+			if(temp>0 && check[temp] < 1){ // ìµœì €ì¸µë³´ë‹¤ ë†’ê³  ë°©ë¬¸í•˜ì§€ ì•Šì€ ê²½ìš°
 				q.offer(temp);
 				check[temp] = check[now] + 1;
 			}
