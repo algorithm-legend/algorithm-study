@@ -21,6 +21,7 @@ public class Q2468 {
     for(int i = 0; i < N; i++) {
       maps[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
+      // 안전 영역중 가장 높은 곳
       for(int height: maps[i]) {
         max_height = Math.max(max_height, height);
       }

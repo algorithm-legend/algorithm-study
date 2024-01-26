@@ -24,15 +24,19 @@ public class Q1068 {
     }
 
     for(int i = 0; i < N; i++){
+      // 루트 삭제시 종료
       if(nodes[i] == -1 && i == R) {
         System.out.println(0);
         System.exit(0);
       }
 
+      // 삭제된 인덱스의 노드인 경우 그래프에서 제외
       if(i == R) {
         continue;
       }
 
+      // 루트 x: 그래프에 추가
+      // 루트 o: root 인덱스 기록(시작 노드 기록)
       if(nodes[i] != -1) {
         graph[nodes[i]].add(i);
       } else if(nodes[i] == -1) {
@@ -53,10 +57,6 @@ public class Q1068 {
 
     while(!queue.isEmpty()) {
       int cur = queue.poll();
-
-      if(cur == R) {
-        continue;
-      }
 
       if(graph[cur].size() == 0) {
         cnt++;
