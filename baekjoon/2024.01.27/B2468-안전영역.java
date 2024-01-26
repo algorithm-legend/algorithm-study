@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class B2468 {
 	/* 
-	 * »ç¹æÅ½»ö(DFS)
+	 * ì‚¬ë°©íƒìƒ‰(DFS)
 	 * 
  	[0][0]  [0][1]  [0][2]
  	[1][0]  [1][1]  [1][2]
@@ -17,7 +17,7 @@ public class B2468 {
  	(x+1, y-1)	(x+1, y)  (x+1, y+1)
  
 	 */
-	// ¡æ ¡é ¡ç ¡è
+	// â†’ â†“ â† â†‘
 	static int[] dx = {0, 1, 0, -1};
 	static int[] dy = {1, 0, -1, 0};
 	
@@ -26,21 +26,21 @@ public class B2468 {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
 		
-		int top = 0; // ÃÖ°í ³ôÀÌ
+		int top = 0; // ìµœê³  ë†’ì´
 		int[][] land = new int[N][N];
 		
-		int max = 0; // ¾ÈÀü±¸¿ªÀÇ ÃÖ´ë °¹¼ö
+		int max = 0; // ì•ˆì „êµ¬ì—­ì˜ ìµœëŒ€ ê°¯ìˆ˜
 		
 		for(int i=0; i<N; i++){
 			for(int j=0; j<N; j++){
 				land[i][j] = sc.nextInt();
-				if(top<land[i][j]) top = land[i][j]; // ÃÖ°í ³ôÀÌ ±¸ÇÏ±â
+				if(top<land[i][j]) top = land[i][j]; // ìµœê³  ë†’ì´ êµ¬í•˜ê¸°
 			}
 		}
 		
 		int count;
 		boolean[][] check ;
-		// 1. ÀüÃ¼ °­¼ö·® Å½»ö
+		// 1. ì „ì²´ ê°•ìˆ˜ëŸ‰ íƒìƒ‰
 		for(int i=0; i<=top; i++){
 			check = new boolean[N][N];			
 			count = findLand(land, check, i);
@@ -50,7 +50,7 @@ public class B2468 {
 		System.out.println(max);
 	}
 	
-	// 2. ÀüÃ¼ Áö¿ª Å½»ö
+	// 2. ì „ì²´ ì§€ì—­ íƒìƒ‰
 	public static int findLand(int[][] land, boolean[][] check, int sink){
 		int count = 0;
 		for(int i=0; i<N; i++){
@@ -65,7 +65,7 @@ public class B2468 {
 		return count;
 	}
 	
-	// 3. ¾ÈÀü¿µ¿ª Å½»ö(bfs)
+	// 3. ì•ˆì „ì˜ì—­ íƒìƒ‰(bfs)
 	public static void bfs(int x, int y, int[][] land, boolean[][] check, int sink){
 		Queue<Node> q = new LinkedList<>();
 		int newX;
@@ -92,7 +92,7 @@ public class B2468 {
 		}
 	}
 	
-	// 3. ¾ÈÀü¿µ¿ª Å½»ö(dfs)
+	// 3. ì•ˆì „ì˜ì—­ íƒìƒ‰(dfs)
 	public static void dfs(int x, int y, int[][] land, boolean[][] check, int sink){
 		int newX;
 		int newY;
