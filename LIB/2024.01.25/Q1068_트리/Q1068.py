@@ -18,6 +18,8 @@ for idx in range(N):
   if nodes[idx] != -1:
     graph[nodes[idx]].append(idx)
 
+print(graph)
+
 if R == root:
   print(0)
   sys.exit()
